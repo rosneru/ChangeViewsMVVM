@@ -1,0 +1,114 @@
+﻿<UserControl x:Class="Desktop.Views.MethodViewMethod"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Desktop.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="700">
+  <Grid >
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <GroupBox Header="CyView"
+              Grid.Row="0">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" SharedSizeGroup="GlobalA"/>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Content="Config file"
+                 Grid.Row="0" Grid.Column="0"/>
+        <TextBox Text="{Binding CurrentMethodWorkingCopy.ConfigFile, Mode=TwoWay}"
+                   Grid.Row="0" Grid.Column="1"/>
+        <Button Grid.Row="0" Grid.Column="2">
+          <Image Source="../Images/open_64.png"/>
+        </Button>
+      </Grid>
+    </GroupBox>
+    <WrapPanel Grid.Row="1">
+      <GroupBox Header="Linear table">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" SharedSizeGroup="GlobalA"/>
+            <ColumnDefinition Width="Auto" SharedSizeGroup="B"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          <Label Content="Speed"
+                 Grid.Row="0" Grid.Column="0"/>
+          <TextBox Text="{Binding CurrentMethodWorkingCopy.LinearTableSpeed, 
+                          Mode=TwoWay, 
+                          UpdateSourceTrigger=PropertyChanged}"
+                   Grid.Row="0" Grid.Column="1"/>
+
+          <Label Content="Volume"
+                 Grid.Row="1" Grid.Column="0"/>
+          <TextBox Text="{Binding CurrentMethodWorkingCopy.LinearTableVolume, 
+                          Mode=TwoWay, 
+                          UpdateSourceTrigger=PropertyChanged}"
+                   Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+      </GroupBox>
+      <GroupBox Header="Pressure sensor">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" SharedSizeGroup="GlobalA"/>
+            <ColumnDefinition Width="Auto" SharedSizeGroup="B"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          <Label Content="Query interval"
+                 Grid.Row="0" Grid.Column="0"/>
+          <TextBox Text="{Binding CurrentMethodWorkingCopy.PressureSensorInterval, 
+                          Mode=TwoWay, 
+                          UpdateSourceTrigger=PropertyChanged}"
+                   Grid.Row="0" Grid.Column="1"/>
+
+          <Label Content="Sensor  mode"
+                 Grid.Row="1" Grid.Column="0"/>
+          <ComboBox ItemsSource="{Binding PressureSensorModes}"
+                    SelectedItem="{Binding CurrentMethodWorkingCopy.PressureSensorMode, 
+                                   UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+      </GroupBox>
+      <GroupBox Header="Temperature sensor">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" SharedSizeGroup="GlobalA"/>
+            <ColumnDefinition Width="Auto" SharedSizeGroup="B"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+            <Label Content="Query interval"
+                   Grid.Row="0" Grid.Column="0"/>
+          <TextBox Text="{Binding CurrentMethodWorkingCopy.TemperatureSensorInterval, 
+                          Mode=TwoWay, 
+                          UpdateSourceTrigger=PropertyChanged}"
+                     Grid.Row="0" Grid.Column="1"/>
+        </Grid>
+      </GroupBox>
+    </WrapPanel>
+    <StackPanel Orientation="Horizontal" 
+                HorizontalAlignment="Right"
+                Margin="0,0,6,0"
+                Grid.Row="2">
+      <Button Content="_Apply"
+              Command="{Binding CmdApply}"/>
+      <Button Content="_Reject"
+              Command="{Binding CmdReject}"/>
+    </StackPanel>
+  </Grid>
+</UserControl>
