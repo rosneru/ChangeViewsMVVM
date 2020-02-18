@@ -20,6 +20,11 @@ They should be automatically restored after project loading
 # How to use it
 UI.Desktop has to be selected as startup project.
 
+**For some reason unkonw to me, to successfully build for the first time, all propjects should be unloaded and then loaded and build one after another in the following order:**
+1. Database
+2. Logic
+3. Desktop
+
 After starting the method view is dislayed. With Manage->New you can 
 create new methods and edit them.
 
