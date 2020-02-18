@@ -63,10 +63,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Api\Temperature\Api.Temperature.csproj">
-      <Project>{7eeea1f4-838f-43dd-be93-0d0e336f7893}</Project>
-      <Name>Api.Temperature</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Database\UI.Database.csproj">
       <Project>{530D8C57-1012-49D1-B806-4F03CD88280F}</Project>
       <Name>UI.Database</Name>
